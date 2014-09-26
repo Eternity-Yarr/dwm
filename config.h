@@ -53,9 +53,13 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-b", NULL };
 static const char *termcmd[]  = { "terminator", NULL };
+static const char *lightsup[] = { "xbacklight", "-inc", "3", NULL };
+static const char *lightsdown[] = { "xbacklight", "-dec", "3", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY,                       XK_F5,     spawn,          {.v = lightsdown } },
+	{ MODKEY,                       XK_F6,     spawn,          {.v = lightsup } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
