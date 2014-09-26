@@ -32,8 +32,8 @@
 #include <time.h>
 
 //BAT1 change if needed
-#define STATUS_FILE	"/sys/class/power_supply/BAT1/status"
-#define CAPACITY_FILE	"/sys/class/power_supply/BAT1/capacity"
+#define STATUS_FILE	"/sys/class/power_supply/BAT0/status"
+#define CAPACITY_FILE	"/sys/class/power_supply/BAT0/capacity"
 #define net_file	"/proc/net/wireless"
 #define temp_file	"/sys/class/hwmon/hwmon0/temp1_input"
 #define STR_SIZE 30
