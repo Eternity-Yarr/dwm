@@ -35,7 +35,7 @@
 #define STATUS_FILE	"/sys/class/power_supply/BAT0/status"
 #define CAPACITY_FILE	"/sys/class/power_supply/BAT0/capacity"
 #define net_file	"/proc/net/wireless"
-#define temp_file	"/sys/class/hwmon/hwmon0/temp1_input"
+#define temp_file	"/sys/class/hwmon/hwmon0/device/temp1_input"
 #define STR_SIZE 30
 #define TIME_FORMAT	"%H:%M | %d-%m-%y"
 #define date	read_date()
