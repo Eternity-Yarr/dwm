@@ -1,0 +1,7 @@
+*~
+*.o
+*.orig
+dwm
+bar_monitor
+bin/*
+share/*
