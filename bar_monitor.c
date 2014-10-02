@@ -64,7 +64,7 @@
 #define DISPLAY_ARCH 0 //display Machine
 /*system*/
 #define SLEEP	1 //contain sleep(1) fucntion by default
-#define battery 1 //Display battery level
+#define battery 0 //Display battery level
 
 static char status_linecp[STR_SIZE];
 static char time_buffer[STR_SIZE];
