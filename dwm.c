@@ -1485,9 +1485,11 @@ sendmon(Client *c, Monitor *m) {
 	if(c->mon == m)
 		return;
 	unfocus(c, True);
+	detach(c);
 	detachstack(c);
 	c->mon = m;
 	c->tags = m->tagset[m->seltags]; /* assign tags of target monitor */
+	selmon = m;
 	attach(c);
 	attachstack(c);
 	focus(NULL);
