@@ -30,7 +30,7 @@ dwm: ${OBJ}
 
 bar_monitor: 
 	@echo Making bar_monitor
-	gcc bar_monitor.c -o bar_monitor ${LDFLAGS}
+	@${CC} bar_monitor.c -o bar_monitor ${LDFLAGS}
 
 clean:
 	@echo cleaning

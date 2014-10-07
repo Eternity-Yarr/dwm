@@ -29,6 +29,7 @@
 #include <sys/utsname.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 #include <time.h>
 
 //BAT1 change if needed
@@ -192,7 +193,7 @@ char * open_status(void) {
 	status_file = fopen(STATUS_FILE, "rt");
        
 	if ( status_file == NULL ) {
-		fprintf(stderr, "Failed to open: %s\n");
+		fprintf(stderr, "Failed to open: %s\n", STATUS_FILE);
 		exit(EXIT_FAILURE);
 	}
 
@@ -212,7 +213,7 @@ char * net(void) {
 	FILE *fp;
 	char buffer[STR_SIZE];
 	char *line = NULL;
-	ssize_t len = 0;
+	size_t len = 0;
 	ssize_t read;
 
 
@@ -222,7 +223,7 @@ char * net(void) {
 		;
 	}
 
-	sscanf(line,"%s\n", &buffer);
+	sscanf(line,"%s\n", buffer);
 
 	free(line);
 
