@@ -2120,7 +2120,6 @@ updatewmhints(Client *c) {
 void
 view(const Arg *arg) {
 	int i;
-	unsigned int tmptag;
 
 	Monitor *m;
 	unsigned int newtagset = selmon->tagset[selmon->seltags ^ 1];
