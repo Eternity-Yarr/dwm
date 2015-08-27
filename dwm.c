@@ -7,6 +7,7 @@
  * allowed to select for this event mask.
  *
  * The event handlers of dwm are organized in an array which is accessed
+
  * whenever a new event has been fetched. This allows event dispatching
  * in O(1) time.
  *
@@ -590,7 +591,9 @@ clientmessage(XEvent *e) {
 			for(i=0; !(c->tags & 1 << i); i++);
 			view(&(Arg){.ui = 1 << i});
 		}
-		pop(c);
+		// to avoid windows being poped to master randomly
+		// pop(c);
+
 	}
 }
 
@@ -1304,19 +1307,19 @@ propertynotify(XEvent *e) {
 		return; /* ignore */
 	else if((c = wintoclient(ev->window))) {
 		switch(ev->atom) {
-		default: break;
-		case XA_WM_TRANSIENT_FOR:
-			if(!c->isfloating && (XGetTransientForHint(dpy, c->win, &trans)) &&
-			   (c->isfloating = (wintoclient(trans)) != NULL))
-				arrange(c->mon);
-			break;
-		case XA_WM_NORMAL_HINTS:
-			updatesizehints(c);
-			break;
-		case XA_WM_HINTS:
-			updatewmhints(c);
-			drawbars();
-			break;
+			default: break;
+			case XA_WM_TRANSIENT_FOR:
+				if(!c->isfloating && (XGetTransientForHint(dpy, c->win, &trans)) &&
+				   (c->isfloating = (wintoclient(trans)) != NULL))
+					arrange(c->mon);
+				break;
+			case XA_WM_NORMAL_HINTS:
+				updatesizehints(c);
+				break;
+			case XA_WM_HINTS:
+				updatewmhints(c);
+				drawbars();
+				break;
 		}
 		if(ev->atom == XA_WM_NAME || ev->atom == netatom[NetWMName]) {
 			updatetitle(c);
