@@ -698,7 +698,7 @@ createmon(void) {
 	if(!(m = (Monitor *)calloc(1, sizeof(Monitor))))
 		die("fatal: could not malloc() %u bytes\n", sizeof(Monitor));
 	m->cl = cl;
-	/* reassing tags when creating a new monitor */
+	/* reassign tags when creating a new monitor */
 	for(i=1, tm = mons; tm; tm = tm->next, i++) {
 		tm->seltags ^= 1;
 		tm->tagset[tm->seltags] = i;
